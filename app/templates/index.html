@@ -1,17 +1,13 @@
-<!-- comentário -->
-<html>
-    <head> 
-        <title>{{ tile }} - Microblog</title>
+ 
+{% extends "base.html" %}
 
-    </head>
-
-    <body>
-        <h1> Olá {{ user.username }}</h1> <!-- título principal -->
-        <div>
-            {% for post in posts %} <!-- comando -->
-                <p>{{ post.author.username }} says: <b>{{ post.body }}</b></p>
-                {% endfor %}
-        </div>
-
-    </body>
-</html>
+{% block content %}
+<h1>Hello, {{ user.username }}!</h1>
+<div>
+    {% for post in posts %}
+        <p>{{ post.author.username }} says: <b>{{ post.body }}</b></p>
+    {% else %}
+        <p>Sorry, there are no posts available!</p>
+    {% endfor %}
+</div>
+{% endblock %}

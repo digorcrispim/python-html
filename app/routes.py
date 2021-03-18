@@ -7,7 +7,11 @@ from flask import render_template
 def index():
     user = {'username': 'Feulo'}
     posts = [
-        {'author': {'username': 'maria'}, 'body': 'Olá da Maria'},
-        {'author': {'username': 'Feulo'}, 'body': 'Olá'}
+        {'author': {'username': 'Maria'}, 'body': "Olá da Maria"},
+        {'author': {'username': 'Mario'}, 'body': "Olá!"}
     ]
-    return render_template("index.html", user = user, posts = posts)
+    return render_template("index.html", user=user, posts=posts)
+
+@app.route('/login')
+def login():
+    return render_template("login.html")
